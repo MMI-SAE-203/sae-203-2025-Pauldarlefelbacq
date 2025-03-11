@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro"; 
+import CardReal from "../../components/CardReal.astro";
+import { getReals, getReal } from "../../../backend/backend.mjs";
+
+const {id} = Astro.params;
+
+let message ='';
+let reals = [];
+
+reals = await getReals();
+
+if (!reals){
+	return Astro.redirect ('/reals');
+}
+console.log(reals)
+---
+
+<Layout titre=realisateurs>
+    <div class="">
+        <div class="grid grid-cols-2 gap-10">
+            {reals.map((real) => <CardReal {...real} />)}
+        </div>
+    </div>
+
+</Layout>

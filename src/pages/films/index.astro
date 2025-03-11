@@ -1,0 +1,61 @@
+---
+import Layout from "../../layouts/Layout.astro"; 
+import Card from "../../components/Card.astro";
+import { getFilms, filterByCat } from "../../../backend/backend.mjs";
+
+const {id} = Astro.params;
+
+let message ='';
+let films = [];
+if (Astro.request.method === "POST") {
+    const data = await Astro.request.formData();
+
+    console.log(data);
+    
+    const cat = data.get("cat");
+    console.log(cat);
+
+    if (["Action", "Surnaturel", "Historique"].includes(cat)) {
+        films = await filterByCat(cat);
+		if(films.length === 0) {
+			message = `Pas de films correspondant à la catégorie recherché`;
+            console.log(cat);
+		}
+    } else {
+        message = "Veuillez entrer des valeurs valides pour le prix.";
+        films = await getFilms();
+        console.log(cat);
+    }
+} else {
+    films = await getFilms();
+}
+if (!films){
+	return Astro.redirect ('/films');
+}
+---
+
+<Layout titre={films.Nom_F}>
+
+    <form class="ml-20 mt-5 *:border *:rounded-lg *:gap-5 *:p-3 *:mx-2" action="/films" method="POST">
+        <label for="cat">Choisir une catégorie</label>
+        <select name="cat" id="cat">
+            <option value="Action">Action</option>
+            <option value="Surnaturel">Surnaturel</option>
+            <option value="Historique">Historique</option>
+        </select>
+		<input type="submit" value="Filtrer par catégorie" />
+	</form>
+    
+    <div>
+        <a href={`/langage/Français`}>Films français</a>
+        <a href={`/langage/Anglais`}>Films anglais</a>
+    </div>
+
+
+    <div>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+            {films.map((film) => <Card {...film} />)}
+        </div>
+    </div>
+
+</Layout>

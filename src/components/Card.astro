@@ -1,0 +1,17 @@
+---
+import { Picture } from 'astro:assets';
+
+const {...film} = Astro.props;
+---
+<div class="mb-15">
+    <h2 class="text-xl font-bold"><span class="text-orange-600">Date</span> {film.Date_passage_F}</h2>
+    <a href={`/films/${film.id}`}><Picture pictureAttributes={{ class: "size-fit  flex overflow-hidden" }} inferSize={true} src=`http://127.0.0.1:8090/api/files/${film.collectionId}/${film.id}/${film.Affiche_F}` alt={film.Nom_F} /></a>
+    <h2>{film.Nom_F}</h2>
+    <ul class="*:mt-4">
+        <li>{film.Real}</li>
+        <li>{film.Duree}H</li>
+        <li>{film.Langage}</li>
+        <li class="mb-5"><a href=`${film.BA_F}`>Bande annonce</a></li>
+    </ul>
+    <a class="col-start-2 col-end-2 font-bold text-white bg-black p-3.5 rounded-md border-solid border-red-600/100 m-10" href={`/films/${film.id}`}>En voir plus</a>
+</div>

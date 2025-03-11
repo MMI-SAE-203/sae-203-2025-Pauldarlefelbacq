@@ -1,0 +1,15 @@
+---
+import { Picture } from 'astro:assets';
+
+const {...real} = Astro.props;
+---
+<div class="flex flex-col place-content-center mb-15">
+    <a href={`/reals/${real.id}`}><Picture pictureAttributes={{ class: "size-fit max-w-[250px] max-h-[300px] flex overflow-hidden" }} inferSize={true} src=`http://127.0.0.1:8090/api/files/${real.collectionId}/${real.id}/${real.Image_R}` alt={real.Nom_R} /></a>
+    <h2>{real.Nom_R}</h2>
+    <ul class="*:mt-4">
+        <li>{real.Date_naissance_R}</li>
+        <li>{real.Est_Invite}</li>
+    </ul>
+    <div class="" set:html={real.Bio_R}></div>
+    <a class="col-start-2 col-end-2 font-bold text-white bg-black p-3.5 rounded-md border-solid border-red-600/100 m-10" href={`/reals/${real.id}`}>En voir plus</a>
+</div>

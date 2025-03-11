@@ -1,0 +1,17 @@
+---
+import { byLang, getFilms } from "../../../backend/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+
+const { lang } = Astro.params;
+console.log(lang);
+
+const films = await byLang(lang);
+console.log(films);
+---
+
+<Layout titre = {films.Langage}>
+    <div>
+        {films.map((film)=> <Card {...film} />)}
+    </div>
+</Layout>

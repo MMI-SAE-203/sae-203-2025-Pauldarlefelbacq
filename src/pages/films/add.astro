@@ -1,0 +1,35 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { addFilm } from "../../../backend/backend.mjs";
+
+let message = "";
+
+if (Astro.request.method === "POST") {
+    const formData = await Astro.request.formData();
+    const response = await addFilm(formData);
+    message = response.message;
+}
+
+console.log(message);
+---
+
+<Layout titre = "Ajouter un film">
+    <div>
+        <h2>Ajouter un film</h2>
+        <form action="/films/add" method="POST" enctype="multipart/form-data">
+            <input type="text" name="Nom_F" placeholder="Nom du film" required class="" />
+            <input type="file" name="Affiche_F" placeholder="Affiche du film" required class="" />
+            <input type="url" name="BA_F" placeholder="Bande annonce" required class="" />
+            <input type="date" name="Date_passage_F" placeholder="Date de passage" required class="" />
+            <select id="Categorie_F" name="Catégorie de film" required class="">
+                <option value="Action">Action</option>
+                <option value="Surnaturel">Surnaturel</option>
+                <option value="Historique">Historique</option>
+              </select>
+            <input type="number" name="Duree" placeholder="Durée du film" required class="" />
+            <input type="text" name="Langage" placeholder="Langage du film" required class="" />
+            <input type="text" name="Description_F" placeholder="Description du film" required class="" />
+            <input type="submit" value="Envoyer" />
+        </form>
+    </div>
+</Layout>

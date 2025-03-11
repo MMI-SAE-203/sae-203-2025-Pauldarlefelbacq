@@ -1,0 +1,30 @@
+---
+import { getFilm } from "../../../backend/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+import Picture from "astro/components/Picture.astro";
+
+const { id } = Astro.params;
+const film = await getFilm(id);
+if(!film){
+   return Astro.redirect('/films');
+};
+
+let nomreal=(film.Real).Nom_R;
+console.log(film);
+---
+
+<Layout titre = {film.Nom_F}>
+    <a href="/films">Retour à la liste</a>
+    <Picture pictureAttributes={{ class: "block rounded-t-lg overflow-hidden" }} inferSize={true} src=`http://127.0.0.1:8090/api/files/${film.collectionId}/${film.id}/${film.Affiche_F}` alt={film.Nom_F} />
+    <h1 class="text-4xl font-bold text-blue-800">{film.Nom_F}</h1>
+    <div class="" set:html={film.Description_F}></div>
+    <ul>
+        <li>{film.Date_passage_F}</li>
+        <li>{film.Duree}</li>
+        <li><a href=`../reals/${film.Real}`>nomreal</a></li>
+    </ul>
+    <div>
+        {film.Categorie_F.map((cate) => {
+            return <a href="/">{cate}</a>})}
+    </div>
+</Layout>

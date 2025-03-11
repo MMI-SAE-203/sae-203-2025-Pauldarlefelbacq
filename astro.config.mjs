@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
-import netlify from '@astrojs/netlify';
+// import netlify from '@astrojs/netlify';
 
 import alpinejs from '@astrojs/alpinejs';
 
@@ -13,5 +13,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss(), alpinejs()]
   },
-adapter: netlify()
+  experimental: {
+    svg: true,
+  }
+// adapter: netlify()
 });
