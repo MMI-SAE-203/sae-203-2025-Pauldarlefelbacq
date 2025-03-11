@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro"; 
+import CardInvites from "../../components/CardInvites.astro";
+import { getInv, getInvs } from "../../../backend/backend.mjs";
+
+const {id} = Astro.params;
+
+let message ='';
+let invs = [];
+
+invs = await getInvs() || [];
+
+if (!invs){
+	return Astro.redirect ('/invs');
+}
+console.log(invs)
+---
+
+<Layout titre=invisateurs>
+    <div class="">
+        <div class="grid grid-cols-2 gap-10">
+            {invs.map((inv) => <CardInvites {...inv} />)}
+        </div>
+    </div>
+
+</Layout>

@@ -206,22 +206,6 @@ export async function getReals(){
         console.log("Une erreur est survenue en lisant la liste des films", error);
     }
 }
-export async function getFilms(){
-    try {
-        let data = await pb.collection('Film').getFullList({
-            sort: '+Date_passage_F',
-    });
-    data = data.map((item) => {
-        item.img = pb.files.getURL(item, item.affiche_F);
-        return item;
-     });
-    return data;
-    } catch(error){
-        console.log("Une erreur est survenue en lisant la liste des films", error);
-    }
-}
-
-
 
 
 export async function getReal(id) {
@@ -243,5 +227,20 @@ export async function getInv(id) {
     } catch (error) {
         console.log('Une erreur est survenue en lisant les invités', error);
         return null;
+    }
+}
+
+export async function getInvs(){
+    try {
+        let data = await pb.collection('Invites').getFullList({
+            sort: '+Nom_I',
+    });
+    data = data.map((item) => {
+        item.img = pb.files.getURL(item, item.Photo_I);
+        return item;
+     });
+    return data;
+    } catch(error){
+        console.log("Une erreur est survenue en lisant la liste des films", error);
     }
 }

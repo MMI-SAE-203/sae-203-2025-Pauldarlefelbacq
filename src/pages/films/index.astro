@@ -12,7 +12,7 @@ if (Astro.request.method === "POST") {
 
     console.log(data);
     
-    const cat = data.get("cat");
+    const cat = data.get("cat") as string;
     console.log(cat);
 
     if (["Action", "Surnaturel", "Historique"].includes(cat)) {
@@ -23,18 +23,18 @@ if (Astro.request.method === "POST") {
 		}
     } else {
         message = "Veuillez entrer des valeurs valides pour le prix.";
-        films = await getFilms();
+        films = await getFilms() || [];
         console.log(cat);
     }
 } else {
-    films = await getFilms();
+    films = await getFilms() || [];
 }
 if (!films){
 	return Astro.redirect ('/films');
 }
 ---
 
-<Layout titre={films.Nom_F}>
+<Layout titre="Programmation des films">
 
     <form class="ml-20 mt-5 *:border *:rounded-lg *:gap-5 *:p-3 *:mx-2" action="/films" method="POST">
         <label for="cat">Choisir une catégorie</label>

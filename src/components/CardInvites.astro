@@ -1,0 +1,11 @@
+---
+import { Picture } from 'astro:assets';
+
+const {...inv} = Astro.props;
+---
+<div class="flex flex-col place-content-center mb-15">
+    <a href={`/invites/${inv.id}`}><Picture pictureAttributes={{ class: "size-fit max-w-[250px] max-h-[300px] flex overflow-hidden" }} inferSize={true} src=`http://127.0.0.1:8090/api/files/${inv.collectionId}/${inv.id}/${inv.Photo_I}` alt={inv.Nom_I} /></a>
+    <h2>{inv.Nom_I}</h2>
+    <div class="" set:html={inv.Biographie}></div>
+    <a class="col-start-2 col-end-2 font-bold text-white bg-black p-3.5 rounded-md border-solid border-red-600/100 m-10" href={`/invites/${inv.id}`}>En voir plus</a>
+</div>

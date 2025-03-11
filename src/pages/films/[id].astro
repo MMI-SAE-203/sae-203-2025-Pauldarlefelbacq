@@ -24,7 +24,7 @@ console.log(film);
         <li><a href=`../reals/${film.Real}`>nomreal</a></li>
     </ul>
     <div>
-        {film.Categorie_F.map((cate) => {
+        {film.Categorie_F.map((cate: unknown) => {
             return <a href="/">{cate}</a>})}
     </div>
 </Layout>

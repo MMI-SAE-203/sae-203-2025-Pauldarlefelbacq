@@ -8,7 +8,7 @@ const {id} = Astro.params;
 let message ='';
 let reals = [];
 
-reals = await getReals();
+reals = await getReals() || [];
 
 if (!reals){
 	return Astro.redirect ('/reals');
