@@ -1,0 +1,113 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Instagram from "../assets/icons/instagram-icon.svg";
+import Facebook from "../assets/icons/facebook-icon.svg";
+import Linkedin from "../assets/icons/linkedin-icon.svg";
+import Tiktok from "../assets/icons/tiktok-icon.svg"
+---
+
+<Layout titre="">
+    <main>
+        <div class="">
+            <h1 class="">Contactez nous !</h1>
+            <img class=""
+            src="./assets/Images/icons/lettre.avif" 
+            alt="photo de bus evolity dans Montbeliard"
+            loading="lazy">
+        </div>
+        
+        <div class="">
+            <h2 class="">Comment nous contacter ?</h2>
+            <ul class="">
+                <li>
+                    <h2 class="">Mail</h2>
+                    <p>VisSport@gmail.com</p>
+                </li>
+                <li>
+                    <h2 class="">Téléphone</h2>
+                    <p>+33 9 99 99 99 99</p>
+                </li>
+                <li>
+                    <h2 class="">Adresse postale</h2>
+                    <p>6 Rue du Commandant Rosset<br>25200 Montbéliard<br>France</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="">
+            <h2 class="">Nos réseaux sociaux</h2>
+            <ul>
+                <li>
+                    <a href="https://instagram.com">
+                        <img 
+                        class=""
+                        src="./assets/Images/icons/instagram-orange.avif" 
+                        alt="icone instagram orange">
+                    </a>
+                    <p class="">@VisSport_off</p>
+                </li>
+                <li>
+                    <a href="https://twitter.com">
+                        <img 
+                        class=""
+                        src="./assets/Images/icons/X-orange.avif" 
+                        alt="icone X orange">
+                    </a>
+                    <p class="">@VisSport_off</p>
+                </li>
+                <li>
+                    <a href="https://facebook.com">
+                        <img 
+                        class=""
+                        src="./assets/Images/icons/facebook-orange.avif" 
+                        alt="icone facebook orange">
+                    </a>
+                    <p class="">VisSport_off</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="">
+            <form class="" action="#" aria-labelledby="form-title">
+                <h3 id="form-title" class="">Formulaire de </h3>
+                <div>
+                  <label class="" for="nom">Nom</label>
+                  <input
+                    class=""
+                    type="text"
+                    name="nom"
+                    id="nom"
+                  />
+                </div>
+                <div>
+                  <label class="" for="mail">Adresse mail</label>
+                  <input
+                    class=""
+                    type="text"
+                    name="mail"
+                    id="mail"
+                  />
+                </div>
+                <div>
+                  <label class="" for="sujet">Sujet</label>
+                  <input
+                    class=""
+                    type="text"
+                    name="sujet"
+                    id="sujet"
+                  />
+                </div>
+                <div>
+                    <label class="" for="message">Message</label>
+                    <textarea
+                      class=""
+                      id="message"
+                      name="message"
+                      rows="5"
+                    ></textarea>
+                  </div>
+                <button class="" type="submit">Envoyer !</button>
+              </form>
+        </div>
+    </main>
+</Layout>

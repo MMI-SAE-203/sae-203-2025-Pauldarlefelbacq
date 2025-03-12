@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro"; 
+import CardActivite from "../../components/CardActivite.astro";
+import { getActivite, getActivites } from "../../../backend/backend.mjs";
+
+const {id} = Astro.params;
+
+let message ='';
+let acts = [];
+
+acts = await getActivites() || [];
+
+if (!acts){
+	return Astro.redirect ('/activites');
+}
+console.log(acts)
+---
+
+<Layout titre=Activités>
+    <div class="">
+        <div class="grid grid-cols-2 gap-10">
+            {acts.map((act) => <CardActivite {...act} />)}
+        </div>
+    </div>
+
+</Layout>

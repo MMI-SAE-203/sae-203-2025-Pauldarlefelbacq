@@ -1,33 +1,71 @@
 ---
-
+import Basket from '../assets/img/balledebasket.avif';
+import Foot from '../assets/img/balledefoot.avif';
+import Rugby from '../assets/img/ballonderugby.avif';
+import Fleche from '../assets/img/fast-backward.avif';
+import Logo from '../assets/img/logo.png';
 
 ---
-<div>
+<header class="sticky top-0 flex items-center justify-between px-4 gap-8 bg-black h-20">
     <a href="/">
-        <img 
-        src="" 
-        alt=""/>
     </a>
-
     <button
-        aria-label="menu"
-        aria-expanded="false"
-        aria-controls="mainNav">
-        <span aria-hidden="true"></span>
+      id="menu-btn"
+      class="group relative z-10 flex h-6 w-10 flex-col justify-between lg:hidden *:block *:ease *:h-0.5 *:w-full *:transform *:rounded-full *:bg-white *:transition *:duration-300"
+      aria-label="Menu"
+      aria-controls="menu"
+      aria-expanded="false"
+    >
+      <span class="group-aria-expanded:translate-y-[11px] group-aria-expanded:rotate-45"></span>
+      <span class="group-aria-expanded:-translate-y-[11px] group-aria-expanded:-rotate-45"></span>
     </button>
-
-    <nav>
-        <img src="" alt="image de ballon de rugby">
-        <img src="" alt="image de ballon de foot">
-        <img src="" alt="image de ballon de basket">
-        <ul>
-            <li><a href="/">Vis'Sport</a></li>
-            <li><a href="">Programme</a></li>
-            <li><a href="">Invités</a></li>
-            <li><a href="">À propos</a></li>
-            <li><a href="">Infos pratiques</a></li>
-            <li><a href="">Nous contacter</a></li>
-            <li><a href="">Billeterie<img src="" alt="icone fleche"></a></li>
-        </ul>
+    <nav
+      id="menu"
+      class="flex-1 px-6 py-12 flex justify-between mt-20 flex-col fixed z-10 inset-0 bg-black visible opacity-100 max-lg:aria-hidden:invisible max-lg:aria-hidden:opacity-0 lg:mt-0 lg:flex-row lg:static lg:bg-transparent lg:py-6 lg:visible lg:opacity-100"
+      aria-hidden="true"
+    >
+    <!-- <Rugby class="absolute ml-53%" /> -->
+    <img class="absolute mt-135% ml-[-10%]" src="" alt="ballon de foot en image">
+    <img class="absolute mt-145% ml-47%" src="" alt="ballon de basket en image">
+      <ul class="flex flex-col *:font-impact text-3xl gap-4 lg:flex-row">
+        <li>
+            <a class='block p-4 rounded-lg text-white' href="/films">Programme</a>
+        </li>
+        <li>
+            <a class="block p-4 rounded-lg text-white" href="/invites">Invités</a>
+        </li>
+        <li>
+            <a class="block p-4 rounded-lg text-white" href="/">Infos pratiques</a>
+        </li>
+        <li>
+            <a class="block p-4 rounded-lg text-white" href="/">À propos</a>
+        </li>
+        <li>
+            <a class="block p-4 rounded-lg text-white" href="/">Nous contacter</a>
+        </li>
+        <li>
+            <a 
+            class="" 
+            href="billeterie.html">Billeterie<img class="" src="./assets/Images/icons/fast-backward.avif" alt="fleches icon"
+                >
+            </a>
+        </li>
+      </ul>
     </nav>
-</div>
+  </header>
+
+<script>
+  const toggle = document.querySelector("#menu-btn");
+  const nav = document.querySelector("#menu");
+  const page = document.body;
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.ariaExpanded === "true";
+      const isClosed = !isOpen;
+      toggle.ariaExpanded = String(isClosed);
+      nav.ariaHidden = String(isOpen);
+      page.classList.toggle("noscroll", isClosed);
+    });
+  }
+</script>

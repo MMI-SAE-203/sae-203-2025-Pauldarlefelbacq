@@ -1,44 +1,47 @@
-<div>
-    <a href="/">
-        <img 
-        src="" 
-        alt="Icone de Vis'Sport">
-    </a>
-    <a href="">
-        <img 
-        src="" 
-        alt="Icone fleche">
-    </a>
-    <ul>
-        <li>
-            <a href="https://www.instagram.com/">
-                <img 
-                src="" 
-                alt="logo instagram">
-            </a>
-        </li>
-        <li>
-            <a href="https://www.facebook.com/">
-                <img 
-                src="" 
-                alt="logo facebook">
-            </a>
-        </li>
-        <li>
-            <a href="https://www.linkedin.com/">
-                <img 
-                src="" 
-                alt="logo linkedin">
-            </a>
-        </li>
-        <li>
-            <a href="https://www.tiktok.com/">
-                <img 
-                src="" 
-                alt="logo tiktok">
-            </a>
-        </li>
-    </ul>
-    <p>6 Rue du Commandant Pierre Rossel, 25200 Montbéliard</p>
-    <p>plus d'info</p>
-</div>
+---
+import Facebook from '../assets/icons/facebook-icon.svg';
+import Instagram from '../assets/icons/instagram-icon.svg';
+import Linkedin from '../assets/icons/linkedin-icon.svg';
+import Tiktok from '../assets/icons/tiktok-icon.svg';
+
+---
+
+<footer class="bg-black text-white lg:grid lg:grid-cols-12 lg:gap-7 lg:py-7 lg:px-7">
+    <div>
+        <a href="/">
+            <img 
+            src="../../src/assets/img/logo.png" 
+            class="size-24 "
+            alt="Icone de Vis'Sport">
+        </a>
+        <a class="grid-start-3" href="">
+            <img 
+            src="" 
+            alt="Icone fleche">
+        </a>
+        <ul class="flex gap-7 my-7">
+            <li>
+                <a href="https://www.instagram.com/">
+                    <Instagram class="size-7" />
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/">
+                    <Facebook class="size-7" />
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/">
+                    <Linkedin class="size-7" />
+                </a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/">
+                    <Tiktok class="size-7" />
+                </a>
+            </li>
+        </ul>
+        <p class="text-sm font-light my-7">6 Rue du Commandant Pierre Rossel, 25200 Montbéliard</p>
+        <p class="py-7">plus d'info</p>
+    </div>
+</footer>

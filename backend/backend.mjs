@@ -19,6 +19,11 @@ export async function allReal() {
     return recordsReal
 }
 
+export async function allInvs() {
+    const recordInv = await pb.collection('Invites').getFullList({sort :'+Nom_I'}) ;
+    return recordInv
+}
+
 //infos d'un film selon son id
 export async function filmById(id) {
     const recordsFilmid = await pb.collection('Film').getOne(id) ;
@@ -41,6 +46,11 @@ export async function realById(id) {
 export async function actByInvited(id) {
     const recordsActInv = await pb.collection('Activites').getFullList({ filter : `Invite_associe_I.id='${id}'`, expand: 'Invite_associe_I' }) ;
     return recordsActInv
+}
+
+export async function filmByReal(id) {
+    const recordsFilmReal = await pb.collection('Film').getFullList({ filter : `Real.id='${id}'`, expand: 'Real' }) ;
+    return recordsFilmReal
 }
 
 //liste de toutes les activités d'un invité selon son id
@@ -242,5 +252,41 @@ export async function getInvs(){
     return data;
     } catch(error){
         console.log("Une erreur est survenue en lisant la liste des films", error);
+    }
+}
+
+
+export function formatDate (date) {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const DateString = new Date(date).toLocaleDateString('fr-FR', options);
+    return DateString;
+}
+
+
+export async function getActivites(){
+    try {
+        let data = await pb.collection('Activites').getFullList({
+            sort: '+Date_A',
+    });
+    data = data.map((item) => {
+        item.img = pb.files.getURL(item, item.Image_A);
+        return item;
+     });
+    return data;
+    } catch(error){
+        console.log("Une erreur est survenue en lisant la liste des films", error);
+    }
+}
+
+
+
+export async function getActivite(id) {
+    try {
+        let data = await pb.collection('Activites').getOne(id);
+        data.imageUrl = pb.files.getURL(data, data.Image_A);
+        return data;
+    } catch (error) {
+        console.log('Une erreur est survenue en lisant le film', error);
+        return null;
     }
 }

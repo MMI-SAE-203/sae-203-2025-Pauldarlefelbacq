@@ -1,7 +1,58 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { allFilms, allActivites, allReal, allInvs } from '../../backend/backend.mjs';
+import Carroussel from '../components/Carroussel.astro';
+
+const film = await allFilms();
+const activites = await allActivites();
+const real = await allReal();
+const invs = await allInvs();
+// console.log(films);
+
+const { films } = Astro.props;
+console.log(films);
 ---
 
 <Layout>
+    <div class="text-center">
+        <p>Venez vivre l'aventure Vis'Sport À la salle l'Axone !</p>
+        <img src="../../src/assets/img/axone.avif" alt="Image d'accueil" class="w-full h-96 object-cover" />
+        <p>6rue du Commandant Pierre Rossel, 25200 Montbéliard</p>
+        <a href="">Voir sur la carte</a>
+    </div>
+    <div class="text-center">
+        <h2 class="font-impact">Bienvenue au Festival <span class="text-orange">Vis'Sport</span></h2>
+        <p>Rendez-vous à l'<b>Axone</b> de <b>Montbéliard</b> pour une immersion cinématographique dédiée au sport ! <b>Vis'Sport</b> célèbre l'esprit de compétition et la persévérance des athlètes à travers des films, débats et rencontres. Passionnés de <b>sport</b> ou de <b>cinéma</b>, ne manquez pas cette fusion unique des deux univers !</p>
+    </div>
+    <div class="text-center">
+        <img src="../../src/assets/img/datesicons.avif" alt="icones de calendrier" />
+        <h2>Voici les dates</h2>
+        <p>Le <b>Festival Vis'Sport</b> se tiendra du 19 au 21 septembre à l'Axone de Montbéliard ! Trois jours dédiés au <b>cinéma</b> et au <b>sport</b>, avec des films inédits et des moments de partage autour de l'univers <b>sportif</b>.</p>
+        <a href="">Billeterie <img src="" alt=""></a>
+    </div>
+    <div>
+        <a href="/films">Programmation</a>
+    </div>
+    <div>
+        <a href="/Invites">Invités présents</a>
+    </div>
+    <div>
+        <a href="/activites">Activités présentes</a>
+    </div>
 
+
+    <!-- <div class="overflow-x-auto py-4">
+        <div class="flex gap-4">
+            {
+                films.map((item: any, index: number) => (
+                    <img
+                        key={index}
+                        class="w-60 md:w-80 rounded-2xl shadow-lg flex-shrink-0"
+                        src={item.Affiche_F}
+                        alt="Affiche du film"
+                    />
+                ))
+            }
+        </div>
+    </div> -->
 </Layout>

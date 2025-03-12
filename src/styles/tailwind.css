@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+@theme{
+    /* typographie */
+    --font-impact: 'Impact', sans-serif;
+    --font-roboto: 'Roboto', sans-serif;
+
+    /* couleurs */
+    --bleu: #0e60b2;
+    --gris: #d9d9d9;
+    --gris-anthracite: #2f2f2f;
+    --orange: #fe5900;
+    --rouge: #ff1e18;
+    --violet: #d704de;
+}
+
+body{
+    @apply font-roboto;
+    @apply text-xl;
+}
+
+h1{
+    @apply text-4xl;
+    @apply font-impact;
+}
+
+h2{
+    @apply text-2xl;
+}
+
+h3{
+    @apply text-sm;
+}
+
+.noscroll{
+    overflow: hidden;
+}

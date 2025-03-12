@@ -1,13 +1,15 @@
 ---
-import { getReal } from "../../../backend/backend.mjs";
+import { getReal, filmByReal } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import Picture from "astro/components/Picture.astro";
+import Carroussel from "../../components/Carroussel.astro";
 
 const { id } = Astro.params;
 const real = await getReal(id);
 if(!real){
    return Astro.redirect('/reals');
 };
+const films = await filmByReal(id);
 
 console.log(real);
 ---
@@ -17,5 +19,11 @@ console.log(real);
     <Picture pictureAttributes={{ class: "block rounded-t-lg overflow-hidden" }} inferSize={true} src=`http://127.0.0.1:8090/api/files/${real.collectionId}/${real.id}/${real.Image_R}` alt={real.Nom_R} />
     <h1 class="text-4xl font-bold text-blue-800">{real.Nom_R}</h1>
     <h2>{real.Date_naissance_R}</h2>
-    <div class="" set:html={real.Bio_R}></div>
+    <div class="text-base" set:html={real.Bio_R}></div>
+
+    <ul>
+        {
+            <Carroussel film={films} />
+        }
+    </ul>
 </Layout>
