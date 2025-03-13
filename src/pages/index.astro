@@ -1,23 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { allFilms, allActivites, allReal, allInvs } from '../../backend/backend.mjs';
+import { allFilms, allActivites, allReal, allInvs, getInvs, getActivites } from '../../backend/backend.mjs';
 import Carroussel from '../components/Carroussel.astro';
+import CarrousselInvite from '../components/CarrousselInvite.astro';
+import CarrousselActivites from '../components/CarrousselActivites.astro';
+import { getFilms } from '../../backend/backend.mjs';
 
-const film = await allFilms();
-const activites = await allActivites();
+const films = await getFilms();
+const Invs = await getInvs();
+const Acts = await getActivites();
 const real = await allReal();
-const invs = await allInvs();
 // console.log(films);
 
-const { films } = Astro.props;
-console.log(films);
+//const { films } = Astro.props;
+// console.log(films);
 ---
 
 <Layout>
     <div class="text-center">
-        <p>Venez vivre l'aventure Vis'Sport À la salle l'Axone !</p>
+        <p class="absolute text-white text-4xl font-impact mt-7">Venez vivre l'aventure Vis'Sport À la salle l'Axone !</p>
         <img src="../../src/assets/img/axone.avif" alt="Image d'accueil" class="w-full h-96 object-cover" />
-        <p>6rue du Commandant Pierre Rossel, 25200 Montbéliard</p>
+        <p class="text-left font-light text-sm">6rue du Commandant Pierre Rossel, 25200 Montbéliard</p>
         <a href="">Voir sur la carte</a>
     </div>
     <div class="text-center">
@@ -30,29 +33,18 @@ console.log(films);
         <p>Le <b>Festival Vis'Sport</b> se tiendra du 19 au 21 septembre à l'Axone de Montbéliard ! Trois jours dédiés au <b>cinéma</b> et au <b>sport</b>, avec des films inédits et des moments de partage autour de l'univers <b>sportif</b>.</p>
         <a href="">Billeterie <img src="" alt=""></a>
     </div>
-    <div>
-        <a href="/films">Programmation</a>
-    </div>
-    <div>
-        <a href="/Invites">Invités présents</a>
-    </div>
-    <div>
-        <a href="/activites">Activités présentes</a>
-    </div>
-
-
-    <!-- <div class="overflow-x-auto py-4">
-        <div class="flex gap-4">
-            {
-                films.map((item: any, index: number) => (
-                    <img
-                        key={index}
-                        class="w-60 md:w-80 rounded-2xl shadow-lg flex-shrink-0"
-                        src={item.Affiche_F}
-                        alt="Affiche du film"
-                    />
-                ))
-            }
+    <div class="grid grid-cols-1 lg:grid-cols-3">
+        <div class="my-12">
+            <Carroussel films={films} />
+            <a class="text-xl flex m-auto w-46 font-bold text-white bg-black p-3.5 rounded-md border border-solid border-red-600/100" href="/films">Programmation</a>
         </div>
-    </div> -->
+        <div class="my-12">
+            <CarrousselInvite Invs={Invs} />
+            <a class="text-xl flex m-auto w-46 font-bold text-white bg-black p-3.5 rounded-md border border-solid border-red-600/100" href="/Invites">Invités présents</a>
+        </div>
+        <div class="my-12">
+            <CarrousselActivites Acts={Acts} />
+            <a class="text-xl flex m-auto w-56 font-bold text-white bg-black p-3.5 rounded-md border border-solid border-red-600/100" href="/activites">Activités présentes</a>
+        </div>
+    </div>
 </Layout>

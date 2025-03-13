@@ -1,9 +1,10 @@
 import PocketBase from 'pocketbase' ;
-const pb = new PocketBase('http://127.0.0.1:8090') ;
+const pb = new PocketBase('https://vissport.pauldarlef.fr:443') ;
 
 // liste des films par ordre de date de passage
 export async function allFilms() {
     const records = await pb.collection('Film').getFullList({sort :'+Date_passage_F'}) ;
+    
     return records
 }
 
@@ -124,7 +125,7 @@ export async function getFilms(){
             sort: '+Date_passage_F',
     });
     data = data.map((item) => {
-        item.img = pb.files.getURL(item, item.affiche_F);
+        item.img = pb.files.getURL(item, item.Affiche_F);
         return item;
      });
     return data;

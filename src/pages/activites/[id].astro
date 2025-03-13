@@ -13,10 +13,10 @@ if(!act){
 console.log(act);
 ---
 
-<Layout titre = {act.Nom_A}>
+<Layout titre = {act.Titre_A}>
     <a href="/activites">Retour à la liste</a>
-    <Picture pictureAttributes={{ class: "block rounded-t-lg overflow-hidden" }} inferSize={true} src=`http://127.0.0.1:8090/api/files/${act.collectionId}/${act.id}/${act.Image_A}` alt={act.Nom_A} />
-    <h1 class="text-4xl font-bold text-blue-800">{act.Nom_A}</h1>
+    <Picture pictureAttributes={{ class: "block  rounded-t-lg overflow-hidden" }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${act.collectionId}/${act.id}/${act.Image_A}` alt={act.Titre_A} />
+    <h1 class="text-4xl font-bold text-blue-800">{act.Titre_A}</h1>
     <h2>{act.Date_naissance_R}</h2>
     <div class="text-base" set:html={act.Resume_A}></div>
 

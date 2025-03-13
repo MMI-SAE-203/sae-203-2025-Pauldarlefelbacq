@@ -1,0 +1,16 @@
+---
+const {Invs} = Astro.props;
+console.log(Invs);
+
+---
+
+<div x-data=`{Invs:${JSON.stringify(Invs)}, index: 0 }`>
+    <h1 class="text-3xl text-center my-4"><span x-text="Invs[index].Nom_I"></span></h1>
+    <a x-bind:href="`/invites/${Invs[index].id}`">
+        <img x-bind:src="Invs[index].img" alt="image" class="block m-auto w-auto h-auto object-cover"/>
+    </a>
+    <div class="m-auto gap-4 w-min flex justify-between my-3">
+        <button @click="index = (index === 0 ? Invs.length - 1 : index - 1)" class="text-black border-2 rounded-2xl border-red-500 p-3">Précédent</button>
+        <button @click="index = (index === Invs.length - 1 ? 0 : index + 1)" class="text-black border-2 rounded-2xl border-red-500 p-3">Suivant</button>
+    </div>
+</div>

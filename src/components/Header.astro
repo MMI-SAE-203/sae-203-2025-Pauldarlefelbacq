@@ -8,6 +8,7 @@ import Logo from '../assets/img/logo.png';
 ---
 <header class="sticky top-0 flex items-center justify-between px-4 gap-8 bg-black h-20">
     <a href="/">
+      <img src="../../public/img/logo.png" alt="">
     </a>
     <button
       id="menu-btn"
@@ -24,10 +25,7 @@ import Logo from '../assets/img/logo.png';
       class="flex-1 px-6 py-12 flex justify-between mt-20 flex-col fixed z-10 inset-0 bg-black visible opacity-100 max-lg:aria-hidden:invisible max-lg:aria-hidden:opacity-0 lg:mt-0 lg:flex-row lg:static lg:bg-transparent lg:py-6 lg:visible lg:opacity-100"
       aria-hidden="true"
     >
-    <!-- <Rugby class="absolute ml-53%" /> -->
-    <img class="absolute mt-135% ml-[-10%]" src="" alt="ballon de foot en image">
-    <img class="absolute mt-145% ml-47%" src="" alt="ballon de basket en image">
-      <ul class="flex flex-col *:font-impact text-3xl gap-4 lg:flex-row">
+      <ul class="flex flex-col *:font-impact text-3xl gap-4 lg:flex-row *:lg:text-sm *:lg:py-52 lg:justify-evenly">
         <li>
             <a class='block p-4 rounded-lg text-white' href="/films">Programme</a>
         </li>
@@ -44,11 +42,13 @@ import Logo from '../assets/img/logo.png';
             <a class="block p-4 rounded-lg text-white" href="/">Nous contacter</a>
         </li>
         <li>
-            <a 
-            class="" 
-            href="billeterie.html">Billeterie<img class="" src="./assets/Images/icons/fast-backward.avif" alt="fleches icon"
-                >
-            </a>
+          <a class="flex align-center border-2 rounded p-3 mr-12 lg:text-xl text-white" href="/billeterie">
+            Billeterie      
+            <img 
+            src="../../src/assets/img/fast-backward.avif" 
+            alt="Icone fleche"
+            class="size-7 ml-5">
+          </a>
         </li>
       </ul>
     </nav>

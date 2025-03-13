@@ -4,7 +4,7 @@ import { Picture } from 'astro:assets';
 const {...act} = Astro.props;
 ---
 <div class="flex flex-col place-content-center mb-15">
-    <a href={`/activites/${act.id}`}><Picture pictureAttributes={{ class: "size-fit max-w-[250px] max-h-[300px] flex overflow-hidden" }} inferSize={true} src=`http://127.0.0.1:8090/api/files/${act.collectionId}/${act.id}/${act.Image_A}` alt={act.Nom_A} /></a>
-    <h2>{act.Nom_A}</h2>
+    <a href={`/activites/${act.id}`}><Picture pictureAttributes={{ class: "size-fit max-w-[250px] max-h-[300px] flex overflow-hidden" }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${act.collectionId}/${act.id}/${act.Image_A}` alt={act.Titre_A} /></a>
+    <h2>{act.Titre_A}</h2>
     <a class="col-start-2 col-end-2 font-bold text-white bg-black p-3.5 rounded-md border-solid border-red-600/100 m-10" href={`/actites/${act.id}`}>En voir plus</a>
 </div>

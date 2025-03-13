@@ -16,7 +16,7 @@
 
 body{
     @apply font-roboto;
-    @apply text-xl;
+    @apply text-xl lg:text-sm;
 }
 
 h1{

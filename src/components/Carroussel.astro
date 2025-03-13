@@ -5,10 +5,12 @@ console.log(films);
 ---
 
 <div x-data=`{films:${JSON.stringify(films)}, index: 0 }`>
-    <h1 class="text-3xl"><span x-text="films[index].Nom_F"></span></h1>
-    <img x-bind:src="films[index].Affiche_F" alt="image" class="w-auto h-auto object-cover"/>
-    <div>
-        <button @click="index = (index === 0 ? films.length - 1 : index - 1)" class="bg-gray-800 text-white p-2">Précédent</button>
-        <button @click="index = (index === films.length - 1 ? 0 : index + 1)" class="bg-gray-800 text-white p-2">Suivant</button>
+    <h1 class="text-3xl text-center my-4"><span x-text="films[index].Nom_F"></span></h1>
+    <a x-bind:href="`/films/${films[index].id}`">
+        <img x-bind:src="films[index].img" alt="image" class="block m-auto w-auto h-auto object-cover"/>
+    </a>
+    <div class="m-auto gap-4 w-min flex justify-between my-3">
+        <button @click="index = (index === 0 ? films.length - 1 : index - 1)" class="text-black border-2 rounded-2xl border-black p-3">Précédent</button>
+        <button @click="index = (index === films.length - 1 ? 0 : index + 1)" class="text-black border-2 rounded-2xl border-black p-3">Suivant</button>
     </div>
 </div>

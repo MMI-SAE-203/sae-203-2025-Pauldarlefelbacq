@@ -14,7 +14,7 @@ console.log(inv);
 
 <Layout titre = {inv.Nom_R}>
     <a href="/invites">Retour à la liste</a>
-    <Picture pictureAttributes={{ class: "size-fit max-w-[250px] max-h-[300px] flex overflow-hidden" }} inferSize={true} src=`http://127.0.0.1:8090/api/files/${inv.collectionId}/${inv.id}/${inv.Photo_I}` alt={inv.Nom_I} /></a>
+    <Picture pictureAttributes={{ class: "size-fit max-w-[250px] max-h-[300px] flex overflow-hidden" }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${inv.collectionId}/${inv.id}/${inv.Photo_I}` alt={inv.Nom_I} /></a>
     <h1 class="text-4xl font-bold text-blue-800">{inv.Nom_R}</h1>
     <div class="" set:html={inv.Biographie}></div>
     <div>Films/activités associés</div>

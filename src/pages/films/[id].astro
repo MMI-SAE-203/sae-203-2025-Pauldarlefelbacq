@@ -1,5 +1,5 @@
 ---
-import { getFilm } from "../../../backend/backend.mjs";
+import { getFilm, formatDate, realById } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import Picture from "astro/components/Picture.astro";
 
@@ -9,22 +9,35 @@ if(!film){
    return Astro.redirect('/films');
 };
 
-let nomreal=(film.Real).Nom_R;
+const date = formatDate(film.Date_passage_F);
+const real = await realById(film.Real);
+const nomreal = real.Nom_R;
+
 console.log(film);
 ---
 
 <Layout titre = {film.Nom_F}>
-    <a href="/films">Retour à la liste</a>
-    <Picture pictureAttributes={{ class: "block rounded-t-lg overflow-hidden" }} inferSize={true} src=`http://127.0.0.1:8090/api/files/${film.collectionId}/${film.id}/${film.Affiche_F}` alt={film.Nom_F} />
-    <h1 class="text-4xl font-bold text-blue-800">{film.Nom_F}</h1>
-    <div class="" set:html={film.Description_F}></div>
-    <ul>
-        <li>{film.Date_passage_F}</li>
-        <li>{film.Duree}</li>
-        <li><a href=`../reals/${film.Real}`>nomreal</a></li>
-    </ul>
-    <div>
-        {film.Categorie_F.map((cate: unknown) => {
-            return <a href="/">{cate}</a>})}
+    <div class="text-center *:my-6 mx-4">
+        <a class="bg-black text-white p-4 block border-2 border-red-500 rounded-2xl" href="/films">Retour à la liste</a>
+        <Picture 
+            pictureAttributes={{ class: "m-auto" }} 
+            inferSize={true} 
+            src=`https://vissport.pauldarlef.fr:443/api/files/${film.collectionId}/${film.id}/${film.Affiche_F}` 
+            alt={film.Nom_F} 
+        />
+        <h1 class="text-4xl font-bold text-blue-800">{film.Nom_F}</h1>
+        <div>
+            <p class="text-orange-500 font-impact text-3xl">Résumé</p>
+            <div class="" set:html={film.Description_F}></div>
+        </div>
+        <ul>
+            <li>Le {date} !</li>
+            <li>{film.Duree}h</li>
+            <li><a href=`../reals/${film.Real}`>Réalisé par <span class="text-blue-500 font-bold">{nomreal}</span></a></li>
+        </ul>
+        <div>
+            {film.Categorie_F.map((cate: unknown) => {
+                return <a href="/">{cate}</a>})}
+        </div>
     </div>
 </Layout>

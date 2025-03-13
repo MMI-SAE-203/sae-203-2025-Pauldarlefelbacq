@@ -6,20 +6,24 @@ import Tiktok from '../assets/icons/tiktok-icon.svg';
 
 ---
 
-<footer class="bg-black text-white lg:grid lg:grid-cols-12 lg:gap-7 lg:py-7 lg:px-7">
+<footer class="bg-black text-white lg:grid mt-12">
     <div>
-        <a href="/">
-            <img 
-            src="../../src/assets/img/logo.png" 
-            class="size-24 "
-            alt="Icone de Vis'Sport">
-        </a>
-        <a class="grid-start-3" href="">
-            <img 
-            src="" 
-            alt="Icone fleche">
-        </a>
-        <ul class="flex gap-7 my-7">
+        <div class="flex items-center gap-7 justify-between">
+            <a href="/">
+                <img 
+                src="../../src/assets/img/logo.png" 
+                class="size-24 "
+                alt="Icone de Vis'Sport">
+            </a>
+            <a class="flex align-center border-2 rounded p-3 mr-12 lg:text-xl" href="/billeterie">
+                Billeterie      
+                <img 
+                src="../../src/assets/img/fast-backward.avif" 
+                alt="Icone fleche"
+                class="size-7 ml-5">
+            </a>
+        </div>
+        <ul class="flex gap-7 ml-7 my-7">
             <li>
                 <a href="https://www.instagram.com/">
                     <Instagram class="size-7" />
@@ -32,7 +36,7 @@ import Tiktok from '../assets/icons/tiktok-icon.svg';
             </li>
             <li>
                 <a href="https://www.linkedin.com/">
-                    <Linkedin class="size-7" />
+                    <Linkedin class="size-7 fill-white" />
                 </a>
             </li>
             <li>
@@ -41,7 +45,7 @@ import Tiktok from '../assets/icons/tiktok-icon.svg';
                 </a>
             </li>
         </ul>
-        <p class="text-sm font-light my-7">6 Rue du Commandant Pierre Rossel, 25200 Montbéliard</p>
-        <p class="py-7">plus d'info</p>
+        <p class="text-sm font-light my-7 ml-7">6 Rue du Commandant Pierre Rossel, 25200 Montbéliard</p>
+        <a class="pl-7 underline decoration-orange-500 lg:self-start" href="/apropos">plus d'info</a>
     </div>
 </footer>
