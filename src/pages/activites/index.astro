@@ -18,7 +18,8 @@ console.log(acts)
 
 <Layout titre=Activités>
     <div class="">
-        <div class="grid grid-cols-2 gap-10">
+        <h1 class="mb-12 text-center">Liste des activitées</h1>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {acts.map((act) => <CardActivite {...act} />)}
         </div>
     </div>

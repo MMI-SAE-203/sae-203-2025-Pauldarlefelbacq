@@ -196,11 +196,21 @@ export async function byLang(lang){
 export async function allFilmsByRealId(id){
     let realFilmRecordsID = await pb.collection('Film').getFullList({ filter : `Real.id='${id}'`, expand: 'Real' }) ;
     realFilmRecordsID = realFilmRecordsID.map((film) => {
-        film.imageUrl = pb.files.getURL(film, film.affiche_F);
+        film.img = pb.files.getURL(film, film.Affiche_F);
         return film;
     });
     return realFilmRecordsID
 }
+
+export async function allActByInvId(id){
+    let realActRecordsID = await pb.collection('Activites').getFullList({ filter : `Invite_associe_I.id='${id}'`, expand: 'Invite_associe_I' }) ;
+    realActRecordsID = realActRecordsID.map((act) => {
+        act.img = pb.files.getURL(act, act.Image_A);
+        return act;
+    });
+    return realActRecordsID
+}
+
 
 
 export async function getReals(){

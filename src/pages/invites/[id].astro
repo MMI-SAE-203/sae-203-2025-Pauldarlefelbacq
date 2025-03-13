@@ -1,9 +1,11 @@
 ---
-import { getInv } from "../../../backend/backend.mjs";
+import { getInv, allActByInvId } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import Picture from "astro/components/Picture.astro";
+import CarrousselActivites from "../../components/CarrousselActivites.astro";
 
 const { id } = Astro.params;
+const acts = await allActByInvId(id);
 const inv = await getInv(id);
 if(!inv){
    return Astro.redirect('/invites');
@@ -13,9 +15,12 @@ console.log(inv);
 ---
 
 <Layout titre = {inv.Nom_R}>
-    <a href="/invites">Retour à la liste</a>
-    <Picture pictureAttributes={{ class: "size-fit max-w-[250px] max-h-[300px] flex overflow-hidden" }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${inv.collectionId}/${inv.id}/${inv.Photo_I}` alt={inv.Nom_I} /></a>
-    <h1 class="text-4xl font-bold text-blue-800">{inv.Nom_R}</h1>
-    <div class="" set:html={inv.Biographie}></div>
-    <div>Films/activités associés</div>
+    <a class="bg-black text-white p-4 block border-2 border-red-500 rounded-2xl w-fit ml-5 mt-2" href="/invites">Retour à la liste</a>
+    <div class="text-center *:my-6 mx-4 lg:grid lg:grid-cols-2 lg:grid-rows-2">
+        <Picture pictureAttributes={{ class: "mx-auto my-5 lg:row-start-1 inline-block max-w-[250px] max-h-[300px]" }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${inv.collectionId}/${inv.id}/${inv.Photo_I}` alt={inv.Nom_I} /></a>
+        <h1 class="text-4xl font-bold text-blue-800 mt-12 lg:col-start-1">{inv.Nom_I}</h1>
+        <div class="row-start-1" set:html={inv.Biographie}></div>
+    </div>
+    <div class="text-3xl font-bold text-center my-12 text-purple-500">Films/activités associés</div>
+    <CarrousselActivites Acts={acts}/>
 </Layout>

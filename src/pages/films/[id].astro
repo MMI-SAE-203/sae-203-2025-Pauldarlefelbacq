@@ -17,15 +17,15 @@ console.log(film);
 ---
 
 <Layout titre = {film.Nom_F}>
-    <div class="text-center *:my-6 mx-4">
-        <a class="bg-black text-white p-4 block border-2 border-red-500 rounded-2xl" href="/films">Retour à la liste</a>
+    <a class="bg-black text-white p-4 block border-2 border-red-500 rounded-2xl w-fit ml-5 mt-2" href="/films">Retour à la liste</a>
+    <div class="text-center *:my-6 mx-4 lg:grid lg:grid-cols-2 lg:grid-rows-4">
         <Picture 
-            pictureAttributes={{ class: "m-auto" }} 
+            pictureAttributes={{ class: "mx-auto my-5 lg:row-span-4 inline-block" }} 
             inferSize={true} 
             src=`https://vissport.pauldarlef.fr:443/api/files/${film.collectionId}/${film.id}/${film.Affiche_F}` 
             alt={film.Nom_F} 
         />
-        <h1 class="text-4xl font-bold text-blue-800">{film.Nom_F}</h1>
+        <h1 class="text-4xl font-bold text-blue-800 lg:col-start-2">{film.Nom_F}</h1>
         <div>
             <p class="text-orange-500 font-impact text-3xl">Résumé</p>
             <div class="" set:html={film.Description_F}></div>

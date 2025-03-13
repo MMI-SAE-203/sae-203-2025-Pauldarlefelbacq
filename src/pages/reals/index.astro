@@ -17,8 +17,9 @@ console.log(reals)
 ---
 
 <Layout titre=realisateurs>
+    <h1 class="my-12 text-center">Liste des réalisateurs</h1>
     <div class="">
-        <div class="grid grid-cols-2 gap-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {reals.map((real) => <CardReal {...real} />)}
         </div>
     </div>

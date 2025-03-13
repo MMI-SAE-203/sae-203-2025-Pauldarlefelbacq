@@ -3,8 +3,12 @@ import { Picture } from 'astro:assets';
 
 const {...inv} = Astro.props;
 ---
-<div class="flex flex-col place-content-center mb-15">
-    <a href={`/invites/${inv.id}`}><Picture pictureAttributes={{ class: "size-fit max-w-[250px] max-h-[300px] flex overflow-hidden" }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${inv.collectionId}/${inv.id}/${inv.Photo_I}` alt={inv.Nom_I} /></a>
-    <h2>{inv.Nom_I}</h2>
-    <a class="col-start-2 col-end-2 font-bold text-white bg-black p-3.5 rounded-md border-solid border-red-600/100 m-10" href={`/invites/${inv.id}`}>En voir plus</a>
+<div class="grid mb-15 text-center align-baseline items-center">
+    <div class="place-content-center mb-15 ">
+        <a href={`/invites/${inv.id}`}><Picture pictureAttributes={{ class: "size-fit block m-auto max-w-[250px] max-h-[300px] " }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${inv.collectionId}/${inv.id}/${inv.Photo_I}` alt={inv.Nom_I} /></a>
+        <div class="mt-[50px] *:mb-12">
+            <h2 class="text-orange-400 font-bold mt-15">{inv.Nom_I}</h2>
+            <a class="block font-bold text-white bg-black p-3.5 rounded-md border border-solid border-red-600/100 m-10" href={`/invites/${inv.id}`}>En voir plus</a>
+        </div>
+    </div>
 </div>

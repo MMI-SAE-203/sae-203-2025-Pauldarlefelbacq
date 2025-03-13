@@ -16,9 +16,10 @@ if (!invs){
 console.log(invs)
 ---
 
-<Layout titre=invisateurs>
+<Layout titre=invites>
+    <h1 class="text-center my-12">Liste des invités</h1>
     <div class="">
-        <div class="grid grid-cols-2 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 mt-12">
             {invs.map((inv) => <CardInvites {...inv} />)}
         </div>
     </div>

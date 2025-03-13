@@ -1,22 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import Billet from "../../public/img/billets_tarif.avif";
+import Billet from "../../public/img/billetsorange_billeterie.avif";
 import Bus from "../../public/img/buse_volity1.avif"
 import Pin from "../../public/img/time_pin.avif"
 ---
 <Layout titre="Infos Pratiques">
-    <main>
-        <div class="">
+    <main class="text-center mx-5 my-12">
+        <div class="text-center">
             <h1 class="">Informations pratiques</h1>
             <h2 class="">Transports en commun</h2>
-            <img class=""
+            <img class="w-full h-96 object-cover mx-0"
             src={Bus.src} 
             alt="photo de bus evolity dans Montbeliard"
             loading="lazy">
         </div>
 
-        <div class="">
-            <h2 class="">Se rendre à <span class="">Vis'Sport</span></h2>
+        <div class="text-left my-12">
+            <h2 class=" mb-5 text-4xl font-impact">Se rendre à <span class="text-orange-500">Vis'Sport</span></h2>
             <p class="">Pour se rendre à l'Axone de Montbéliard en transports en commun, plusieurs options s'offrent à vous :</p>
             <p class=" ">La ligne de bus 1 dessert directement l'Axone.Prenez là depuis le centre-ville de Montbéliard, direction "Axone".L'arrêt "Axone" se trouve juste devant la salle.</p>
             <p class=" ">Vous pouvez également emprunter les lignes 2 ou 4,qui s'arrêtent à proximité, à l'arrêt "Champs-Montants".De là, comptez environ 5 minutes de marche jusqu'à l'Axone.</p>
@@ -25,24 +25,25 @@ import Pin from "../../public/img/time_pin.avif"
             <p class="">Enfin, si vous venez de l'extérieur de Montbéliard,la gare SNCF est bien desservie. De là,prenez le bus ligne 1 direction "Axone" pour rejoindre facilement le lieu du festival.</p>
         </div>
 
-        <div class="">
-            <h2 class="">Horaires et Tarifs</h2>
+        <h2 class="font-impact text-orange-500">Horaires et Tarifs</h2>
+        <div class="flex justify-center items-center gap-8 my-4">
             <img 
-            class=""
+            class="size-32"
             src={Pin.src} 
             alt="icone d'une horloge dans un marqueur de carte"
             loading="lazy"
             >
 
             <img 
-            class=""
+            class="size-32"
             src={Billet.src} 
             alt="icone de 2 billets dans un cercle noir"
             loading="lazy"
             >
+        </div>
 
-            <h2 class=" ">Horaires</h2>
-            <p class="">Le festival Vis'Sport se déroulera du vendredi 19 au dimanche 21 septembre. Voici les horaires à retenir pour profiter pleinement de cet événement cinématographique :</p>
+            <h2 class="text-orange-500 my-7 font">Horaires</h2>
+            <p class="mb-5">Le festival Vis'Sport se déroulera du vendredi 19 au dimanche 21 septembre. Voici les horaires à retenir pour profiter pleinement de cet événement cinématographique :</p>
             <ul class="">
                 <li class="">Vendredi 19 septembre :
                     <ul class="">
@@ -65,11 +66,11 @@ import Pin from "../../public/img/time_pin.avif"
                     </ul>
                 </li>
             </ul>
-            <p class="">Assurez-vous d'arriver à l'avance pour profiter des activités et des rencontres avec les invités. Les horaires peuvent être sujets à modification, il est donc conseillé de vérifier les mises à jour sur le site officiel du festival.</p>
+            <p class="mt-5">Assurez-vous d'arriver à l'avance pour profiter des activités et des rencontres avec les invités. Les horaires peuvent être sujets à modification, il est donc conseillé de vérifier les mises à jour sur le site officiel du festival.</p>
         </div>
 
-        <div class="">
-            <h2 class=" ">Tarifs</h2>
+        <div class="my-12">
+            <h2 class="text-orange-500">Tarifs</h2>
             <p class="">Voici les tarifs à retenir</p>
             <ul>
                 <li>Pass journée : 5€
@@ -89,7 +90,7 @@ import Pin from "../../public/img/time_pin.avif"
             <p class="">N'hésitez pas à réserver vos billets à l'avance !</p>
         </div>
 
-        <div class="">
+        <div class="text-left my-12">
             <h2 class="">Mentions légales</h2>
             <ul>
                 <li>

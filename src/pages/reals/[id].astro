@@ -1,5 +1,5 @@
 ---
-import { getReal, allFilmsByRealId } from "../../../backend/backend.mjs";
+import { getReal, allFilmsByRealId, formatDate } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import Picture from "astro/components/Picture.astro";
 import Carroussel from "../../components/Carroussel.astro";
@@ -10,16 +10,20 @@ if(!real){
    return Astro.redirect('/reals');
 };
 const films = await allFilmsByRealId(id);
-
+const date = formatDate(real.Date_naissance_R);
 console.log(real);
 ---
 
 <Layout titre = {real.Nom_R}>
-    <a href="/reals">Retour à la liste</a>
-    <Picture pictureAttributes={{ class: "block rounded-t-lg overflow-hidden" }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${real.collectionId}/${real.id}/${real.Image_R}` alt={real.Nom_R} />
-    <h1 class="text-4xl font-bold text-blue-800">{real.Nom_R}</h1>
-    <h2>{real.Date_naissance_R}</h2>
-    <div class="text-base" set:html={real.Bio_R}></div>
+    <a class="bg-black text-white p-4 block border-2 border-red-500 rounded-2xl w-fit ml-5 mt-2" href="/reals">Retour à la liste</a>
+    <div class="text-center *:my-6 mx-4 lg:grid lg:grid-cols-2 lg:grid-rows-2">
+        <Picture pictureAttributes={{ class: "mx-auto my-5 lg:row-span-3 inline-block" }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${real.collectionId}/${real.id}/${real.Image_R}` alt={real.Nom_R} />
+        <div>
+            <h1 class="text-4xl font-bold text-blue-800">{real.Nom_R}</h1>
+            <h2>Né le {date}</h2>
+        </div>
+        <div class="text-base my-12" set:html={real.Bio_R}></div>
+    </div>
 
     <ul>
         {

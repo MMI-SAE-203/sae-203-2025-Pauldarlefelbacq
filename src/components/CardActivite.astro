@@ -3,8 +3,8 @@ import { Picture } from 'astro:assets';
 
 const {...act} = Astro.props;
 ---
-<div class="flex flex-col place-content-center mb-15">
-    <a href={`/activites/${act.id}`}><Picture pictureAttributes={{ class: "size-fit max-w-[250px] max-h-[300px] flex overflow-hidden" }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${act.collectionId}/${act.id}/${act.Image_A}` alt={act.Titre_A} /></a>
-    <h2>{act.Titre_A}</h2>
-    <a class="col-start-2 col-end-2 font-bold text-white bg-black p-3.5 rounded-md border-solid border-red-600/100 m-10" href={`/actites/${act.id}`}>En voir plus</a>
+<div class="mb-15 text-center align-baseline items-center mt-12">
+    <a href={`/activites/${act.id}`}><Picture pictureAttributes={{ class: "size-fit block m-auto overflow-hidden max-w-[250px] max-h-[300px] overflow-hidden" }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${act.collectionId}/${act.id}/${act.Image_A}` alt={act.Titre_A} /></a>
+    <h2 class="mb-12">{act.Titre_A}</h2>
+    <a class="col-start-2 col-end-2 font-bold text-white bg-black p-3.5 rounded-md border border-solid border-purple-600/100 m-10" href={`/activites/${act.id}`}>En voir plus</a>
 </div>

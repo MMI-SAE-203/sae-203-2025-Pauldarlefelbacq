@@ -36,15 +36,20 @@ if (!films){
 
 <Layout titre="Programmation des films">
 
-    <form class="ml-20 mt-5 *:border *:rounded-lg *:gap-5 *:p-3 *:mx-2" action="/films" method="POST">
-        <label for="cat">Choisir une catégorie</label>
-        <select name="cat" id="cat">
-            <option value="Action">Action</option>
-            <option value="Surnaturel">Surnaturel</option>
-            <option value="Historique">Historique</option>
-        </select>
-		<input type="submit" value="Filtrer par catégorie" />
-	</form>
+    <div class="justify-self-center my-5">
+        <details class="border border-red-500  py-3 px-5 rounded-lg w-fit">
+            <summary class="font-bold cursor-pointer">Filtres</summary>
+            <form class="mt-3 *:border *:rounded-lg *:gap-5 *:p-3 *:mx-2 flex flex-col *:my-5" action="/films" method="POST">
+                <label class="border-white font-bold" for="cat">Choisir une catégorie</label>
+                <select name="cat" id="cat">
+                    <option value="Action">Action</option>
+                    <option value="Surnaturel">Surnaturel</option>
+                    <option value="Historique">Historique</option>
+                </select>
+                <input class="bg-orange-500 text-white" type="submit" value="Filtrer par catégorie" />
+            </form>
+        </details>
+    </div>
     
     <div>
         <a href={`/langage/Français`}>Films français</a>
@@ -53,6 +58,7 @@ if (!films){
 
 
     <div>
+        <h1 class="text-center my-12">Liste des films</h1>
         <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
             {films.map((film) => <Card {...film} />)}
         </div>

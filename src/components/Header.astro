@@ -2,13 +2,13 @@
 import Basket from '../assets/img/balledebasket.avif';
 import Foot from '../assets/img/balledefoot.avif';
 import Rugby from '../assets/img/ballonderugby.avif';
-import Fleche from '../assets/img/fast-backward.avif';
-import Logo from '../assets/img/logo.png';
+import Fleche from '../../public/img/fast-backward.avif';
+import Logo from '../../public/img/logo.png';
 
 ---
 <header class="sticky top-0 flex items-center justify-between px-4 gap-8 bg-black h-20">
     <a href="/">
-      <img src="../../public/img/logo.png" alt="">
+      <img src={Logo.src} alt="Logo">
     </a>
     <button
       id="menu-btn"
@@ -25,7 +25,7 @@ import Logo from '../assets/img/logo.png';
       class="flex-1 px-6 py-12 flex justify-between mt-20 flex-col fixed z-10 inset-0 bg-black visible opacity-100 max-lg:aria-hidden:invisible max-lg:aria-hidden:opacity-0 lg:mt-0 lg:flex-row lg:static lg:bg-transparent lg:py-6 lg:visible lg:opacity-100"
       aria-hidden="true"
     >
-      <ul class="flex flex-col *:font-impact text-3xl gap-4 lg:flex-row *:lg:text-sm *:lg:py-52 lg:justify-evenly">
+      <ul class="flex flex-col *:font-impact text-3xl gap-4 lg:flex-row *:lg:text-sm *:lg:py-52 lg:place-content-evenly">
         <li>
             <a class='block p-4 rounded-lg text-white' href="/films">Programme</a>
         </li>
@@ -33,19 +33,25 @@ import Logo from '../assets/img/logo.png';
             <a class="block p-4 rounded-lg text-white" href="/invites">Invités</a>
         </li>
         <li>
-            <a class="block p-4 rounded-lg text-white" href="/">Infos pratiques</a>
+          <a class="block p-4 rounded-lg text-white" href="/reals">Réalisateur</a>
         </li>
         <li>
-            <a class="block p-4 rounded-lg text-white" href="/">À propos</a>
+          <a class="block p-4 rounded-lg text-white" href="/activites">Activités</a>
         </li>
         <li>
-            <a class="block p-4 rounded-lg text-white" href="/">Nous contacter</a>
+            <a class="block p-4 rounded-lg text-white" href="/infospratiques">Infos pratiques</a>
         </li>
         <li>
-          <a class="flex align-center border-2 rounded p-3 mr-12 lg:text-xl text-white" href="/billeterie">
+            <a class="block p-4 rounded-lg text-white" href="/apropos">À propos</a>
+        </li>
+        <li>
+            <a class="block p-4 rounded-lg text-white" href="/contact">Nous contacter</a>
+        </li>
+        <li>
+          <a class="flex w-fit align-center border-2 rounded p-3 mr-12 lg:text-xl text-purple-600" href="/billeterie">
             Billeterie      
             <img 
-            src="../../public/img/fast-backward.avif" 
+            src={Fleche.src} 
             alt="Icone fleche"
             class="size-7 ml-5">
           </a>

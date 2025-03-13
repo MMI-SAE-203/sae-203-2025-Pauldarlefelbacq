@@ -3,110 +3,106 @@ import Layout from "../layouts/Layout.astro";
 import Instagram from "../assets/icons/instagram-icon.svg";
 import Facebook from "../assets/icons/facebook-icon.svg";
 import Linkedin from "../assets/icons/linkedin-icon.svg";
-import Tiktok from "../assets/icons/tiktok-icon.svg"
+import Tiktok from "../assets/icons/tiktok-icon.svg";
+import Lettre from "../../public/img/lettre.avif";
 ---
 
-<Layout titre="">
-    <main>
-        <div class="">
-            <h1 class="">Contactez nous !</h1>
-            <img class=""
-            src="../../public/img/lettre.avif" 
-            alt="photo de bus evolity dans Montbeliard"
+<Layout titre="Contact">
+    <main class="text-center">
+        <div class="my-12">
+            <h1 class="mb-12">Contactez nous !</h1>
+            <img class="justify-self-center"
+            src={Lettre.src}
+            alt="photo de lettre"
             loading="lazy">
         </div>
         
-        <div class="">
-            <h2 class="">Comment nous contacter ?</h2>
-            <ul class="">
+        <div class="my-12 lg:*:flex lg:*:place-content-evenly">
+            <h2 class="text-orange-500">Comment nous contacter ?</h2>
+            <ul class="*:my-5">
                 <li>
-                    <h2 class="">Mail</h2>
+                    <h2 class="text-orange-500 font-impact">Mail</h2>
                     <p>VisSport@gmail.com</p>
                 </li>
                 <li>
-                    <h2 class="">Téléphone</h2>
+                    <h2 class="text-orange-500 font-impact">Téléphone</h2>
                     <p>+33 9 99 99 99 99</p>
                 </li>
                 <li>
-                    <h2 class="">Adresse postale</h2>
+                    <h2 class="text-orange-500 font-impact">Adresse postale</h2>
                     <p>6 Rue du Commandant Rosset<br>25200 Montbéliard<br>France</p>
                 </li>
             </ul>
         </div>
 
-        <div class="">
+        <div class="lg:*:flex lg:*:place-content-evenly">
             <h2 class="">Nos réseaux sociaux</h2>
-            <ul>
+            <ul class="*:flex *:my-5 *:justify-self-center *:items-center ">
                 <li>
                     <a href="https://instagram.com">
-                        <img 
-                        class=""
-                        src="./assets/Images/icons/instagram-orange.avif" 
-                        alt="icone instagram orange">
+                        <Instagram class="size-12 justify-self-center" />
                     </a>
-                    <p class="">@VisSport_off</p>
+                    <p class="ml-5 text-orange-500">@VisSport_off</p>
                 </li>
                 <li>
                     <a href="https://twitter.com">
-                        <img 
-                        class=""
-                        src="./assets/Images/icons/X-orange.avif" 
-                        alt="icone X orange">
+                        <Tiktok class="size-12 justify-self-center" />
                     </a>
-                    <p class="">@VisSport_off</p>
+                    <p class="ml-5 text-orange-500">@VisSport_off</p>
                 </li>
                 <li>
                     <a href="https://facebook.com">
-                        <img 
-                        class=""
-                        src="./assets/Images/icons/facebook-orange.avif" 
-                        alt="icone facebook orange">
+                        <Facebook class="size-12 justify-self-center" />
                     </a>
-                    <p class="">VisSport_off</p>
+                    <p class="ml-5 text-orange-500">VisSport_off</p>
                 </li>
             </ul>
         </div>
 
-        <div class="">
-            <form class="" action="#" aria-labelledby="form-title">
-                <h3 id="form-title" class="">Formulaire de </h3>
-                <div>
-                  <label class="" for="nom">Nom</label>
-                  <input
-                    class=""
+        <div class=" mx-2 flex flex-col ">
+            <form class="*:my-5 " action="#" aria-labelledby="form-title">
+                <h3 id="form-title" class="">Formulaire de contact</h3>
+                <div class="flex flex-col">
+                <label class="" for="nom">Nom</label>
+                <input
+                    class="border w-fit m-auto rounded p-1"
                     type="text"
                     name="nom"
                     id="nom"
-                  />
+                    placeholder="Toto"
+                />
                 </div>
-                <div>
+                <div class="flex flex-col">
                   <label class="" for="mail">Adresse mail</label>
                   <input
-                    class=""
+                    class="border w-fit m-auto rounded p-1"
                     type="text"
                     name="mail"
                     id="mail"
+                    placeholder="toto@gmail.com"
                   />
                 </div>
-                <div>
+                <div class="flex flex-col">
                   <label class="" for="sujet">Sujet</label>
                   <input
-                    class=""
+                    class="border w-fit m-auto rounded p-1"
                     type="text"
                     name="sujet"
                     id="sujet"
+                    placeholder="film mauvais"
                   />
                 </div>
-                <div>
+                <div class="flex flex-col">
                     <label class="" for="message">Message</label>
                     <textarea
-                      class=""
+                      class="border w-fit m-auto rounded p-1"
                       id="message"
                       name="message"
                       rows="5"
+                      placeholder="super film !"
                     ></textarea>
                   </div>
-                <button class="" type="submit">Envoyer !</button>
+                <button class="border px-4 py-2 rounded bg-orange-500 text-white " type="submit">Envoyer !</button>
               </form>
         </div>
     </main>
