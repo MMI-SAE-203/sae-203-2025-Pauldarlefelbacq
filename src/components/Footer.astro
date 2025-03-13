@@ -3,6 +3,8 @@ import Facebook from '../assets/icons/facebook-icon.svg';
 import Instagram from '../assets/icons/instagram-icon.svg';
 import Linkedin from '../assets/icons/linkedin-icon.svg';
 import Tiktok from '../assets/icons/tiktok-icon.svg';
+import Back from '../../public/img/fast-backward.avif';
+import Logo from "../../public/img/logo.png";
 
 ---
 
@@ -11,14 +13,14 @@ import Tiktok from '../assets/icons/tiktok-icon.svg';
         <div class="flex items-center gap-7 justify-between">
             <a href="/">
                 <img 
-                src="../../public/img/logo.png" 
+                src={Logo.src} 
                 class="size-24 "
                 alt="Icone de Vis'Sport">
             </a>
             <a class="flex align-center border-2 rounded p-3 mr-12 lg:text-xl" href="/billeterie">
                 Billeterie      
                 <img 
-                src="../../public/img/fast-backward.avif" 
+                src={Back.src} 
                 alt="Icone fleche"
                 class="size-7 ml-5">
             </a>

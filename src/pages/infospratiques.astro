@@ -1,5 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import Billet from "../../public/img/billets_tarif.avif";
+import Bus from "../../public/img/buse_volity1.avif"
+import Pin from "../../public/img/time_pin.avif"
 ---
 <Layout titre="Infos Pratiques">
     <main>
@@ -7,7 +10,7 @@ import Layout from "../layouts/Layout.astro"
             <h1 class="">Informations pratiques</h1>
             <h2 class="">Transports en commun</h2>
             <img class=""
-            src="../../public/img/buse_volity1.avif" 
+            src={Bus.src} 
             alt="photo de bus evolity dans Montbeliard"
             loading="lazy">
         </div>
@@ -26,14 +29,14 @@ import Layout from "../layouts/Layout.astro"
             <h2 class="">Horaires et Tarifs</h2>
             <img 
             class=""
-            src="../../public/img/time_pin.avif" 
+            src={Pin.src} 
             alt="icone d'une horloge dans un marqueur de carte"
             loading="lazy"
             >
 
             <img 
             class=""
-            src="../../public/img/billets_tarif.avif" 
+            src={Billet.src} 
             alt="icone de 2 billets dans un cercle noir"
             loading="lazy"
             >
