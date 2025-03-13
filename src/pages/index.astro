@@ -5,6 +5,7 @@ import Carroussel from '../components/Carroussel.astro';
 import CarrousselInvite from '../components/CarrousselInvite.astro';
 import CarrousselActivites from '../components/CarrousselActivites.astro';
 import { getFilms } from '../../backend/backend.mjs';
+import ImgAcc from '../../public/img/axone.avif';
 
 const films = await getFilms();
 const Invs = await getInvs();
@@ -19,7 +20,7 @@ const real = await allReal();
 <Layout>
     <div class="text-center">
         <p class="absolute text-white text-4xl font-impact mt-7">Venez vivre l'aventure Vis'Sport À la salle l'Axone !</p>
-        <img src="../../public/img/axone.avif" alt="Image d'accueil" class="w-full h-96 object-cover" />
+        <img src={ImgAcc.src} alt="Image d'accueil" class="w-full h-96 object-cover" />
         <p class="text-left font-light text-sm">6rue du Commandant Pierre Rossel, 25200 Montbéliard</p>
         <a href="">Voir sur la carte</a>
     </div>
