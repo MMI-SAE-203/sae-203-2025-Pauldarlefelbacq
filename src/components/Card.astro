@@ -7,7 +7,10 @@ const date = formatDate(film.Date_passage_F);
 ---
 <div class="mb-15 text-center align-baseline items-center">
     <h2 class="text-xl font-bold"><span class="text-orange-600">Date </span>{date}</h2>
-    <a class="flex content-center" href={`/films/${film.id}`}><Picture pictureAttributes={{ class: "size-fit block m-auto overflow-hidden" }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${film.collectionId}/${film.id}/${film.Affiche_F}` alt={film.Nom_F} /></a>
+    <a class="flex content-center" href={`/films/${film.id}`}>
+        <img src={film.img} alt={film.Nom_F} class="size-fit block m-auto overflow-hidden"/>
+        <!-- <Picture pictureAttributes={{ class: "size-fit block m-auto overflow-hidden" }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${film.collectionId}/${film.id}/${film.Affiche_F}` alt={film.Nom_F} /> -->
+    </a>
     <h2 class="text-orange-400 font-bold">{film.Nom_F}</h2>
     <ul class="*:mt-2">
         <li>{film.Real}</li>

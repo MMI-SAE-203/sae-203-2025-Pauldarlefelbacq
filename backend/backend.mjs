@@ -139,7 +139,7 @@ export async function getFilms(){
 export async function getFilm(id) {
     try {
         let data = await pb.collection('Film').getOne(id);
-        data.imageUrl = pb.files.getURL(data, data.affiche_F);
+        data.img = pb.files.getURL(data, data.Affiche_F);
         return data;
     } catch (error) {
         console.log('Une erreur est survenue en lisant le film', error);
@@ -219,7 +219,7 @@ export async function getReals(){
             sort: '+Nom_R',
     });
     data = data.map((item) => {
-        item.img = pb.files.getURL(item, item.Photo_I);
+        item.img = pb.files.getURL(item, item.Image_R);
         return item;
      });
     return data;
@@ -232,7 +232,7 @@ export async function getReals(){
 export async function getReal(id) {
     try {
         let data = await pb.collection('Realisateurs').getOne(id);
-        data.imageUrl = pb.files.getURL(data, data.Image_R);
+        data.img = pb.files.getURL(data, data.Image_R);
         return data;
     } catch (error) {
         console.log('Une erreur est survenue en lisant les réalisateurs', error);
@@ -243,7 +243,7 @@ export async function getReal(id) {
 export async function getInv(id) {
     try {
         let data = await pb.collection('Invites').getOne(id);
-        data.imageUrl = pb.files.getURL(data, data.Photo_I);
+        data.img = pb.files.getURL(data, data.Photo_I);
         return data;
     } catch (error) {
         console.log('Une erreur est survenue en lisant les invités', error);
@@ -294,7 +294,7 @@ export async function getActivites(){
 export async function getActivite(id) {
     try {
         let data = await pb.collection('Activites').getOne(id);
-        data.imageUrl = pb.files.getURL(data, data.Image_A);
+        data.img = pb.files.getURL(data, data.Image_A);
         return data;
     } catch (error) {
         console.log('Une erreur est survenue en lisant le film', error);

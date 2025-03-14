@@ -7,7 +7,10 @@ const date = formatDate(real.Date_naissance_R);
 
 ---
 <div class="mb-15 text-center align-baseline items-center">
-    <a href={`/reals/${real.id}`}><Picture pictureAttributes={{ class: "size-fit block m-auto max-w-[250px] max-h-[300px] border-5 border-blue-500 overflow-hidden" }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${real.collectionId}/${real.id}/${real.Image_R}` alt={real.Nom_R} /></a>
+    <a href={`/reals/${real.id}`}>
+        <img src={real.img} alt={real.Nom_R} class="size-fit block m-auto max-w-[250px] max-h-[300px] border-5 border-blue-500 overflow-hidden" />
+        <!-- <Picture pictureAttributes={{ class: "size-fit block m-auto max-w-[250px] max-h-[300px] border-5 border-blue-500 overflow-hidden" }} inferSize={true} src=`https://vissport.pauldarlef.fr:443/api/files/${real.collectionId}/${real.id}/${real.Image_R}` alt={real.Nom_R} /> -->
+    </a>
     <h2>{real.Nom_R}</h2>
     <ul class="*:mt-4">
         <li>Né le {date}</li>
