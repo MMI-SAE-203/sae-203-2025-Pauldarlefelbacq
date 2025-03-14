@@ -1,0 +1,66 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Billet from "../../public/img/billetsorange_billeterie.avif";
+import Panier from "../../public/img/panier.avif";
+---
+<Layout titre="Billeterie">
+    <main>
+        <div class="text-center justify-items-center my-12">
+            <h1 class="">Billeterie</h1>
+            <img class=""
+            src={Billet.src} 
+            alt="icone de billets oranges"
+            loading="lazy">
+        </div>
+        <div class="flex flex-col justify-center items-center my-5 *:rounded-xl *:p-2 ">
+            <div class="border flex justify-between max-w-fit *:mx-12 mt-7">
+                <span class="font-bold">Pass journée</span>
+                <span class="">5€</span>
+                <div class="bg-black text-white rounded-md *:mx-3">
+                    <button class="">-</button>
+                    <button class="">+</button>
+                </div>
+            </div>
+            <div class="">
+                <span class="">0</span>
+            </div>
+
+            <div class="border flex justify-between max-w-fit *:mx-12 mt-7">
+                <span class="font-bold">Pass weekend</span>
+                <span class="">12€</span>
+                <div class="bg-black text-white rounded-md *:mx-3">
+                    <button class="">-</button>
+                    <button class="">+</button>
+                </div>
+            </div>
+            <div class="">
+                <span class="">0</span>
+            </div>
+
+            <div class="border flex justify-between max-w-fit *:mx-12 mt-7">
+                <span class="font-bold">Pass journée</span>
+                <span class="">3€</span>
+                <div class="bg-black text-white rounded-md *:mx-3">
+                    <button class="">-</button>
+                    <button class="">+</button>
+                </div>
+            </div>
+            <div class="">
+                <span class="">0</span>
+            </div>
+
+            <div class="border flex justify-between max-w-fit *:mx-12 bg-orange-500 mt-7 align-middle">
+                <span class="">Panier</span>
+                <div class="flex">
+                    <span class="">0€</span>
+                    <div class="">
+                        <img 
+                        class=""
+                        src={Panier.src}
+                        alt="icone de panier">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>
